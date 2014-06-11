@@ -1,0 +1,111 @@
+/*******************************
+            Global
+*******************************/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+html,
+body {
+  font-size: 15px;
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: #FFFFFF;
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+}
+
+
+header {
+	height: 400px;
+	background: url(/assets/img/bg.jpg) 50% 0 no-repeat fixed;;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: fixed;
+	overflow: hidden;
+	-webkit-box-shadow: 0 -20px 10px 0 rgba(0, 0, 0, 0.1) inset !important;
+	box-shadow: 0 -20px 10px 0 rgba(0, 0, 0, 0.1) inset !important;
+	text-align: center;
+	color: white;
+}
+
+.site-title {
+	margin-top: 75px;
+}
+
+/******************
+	Main Menu
+******************/
+.menu-placeholder {
+	height: 39px;
+}
+.menu.main {
+	margin: 0;
+	z-index: 999;
+	background-color: #2b82ad;
+	border: none;
+	border-radius: 0;
+}
+	.main.menu .navbar-nav>li>a {
+		color: #e7e6dd;
+	}
+	.menu.main.stuck {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+/******************
+	Side Menu
+******************/
+.side.menu {
+	padding-left: 10px;
+	margin-top: 11px !important;
+	background-color: #e7e6dd;
+	min-height: 1000px;
+	border-right: 1px solid #ddd;
+}
+	.side.menu.stuck {
+		margin-top: 0 !important;
+		position: fixed;
+		top: 50px;
+		z-index: 999;
+	}
+	.side.menu li {
+		border-radius: 0;
+		margin: 0;
+	}
+	.side.menu li span {
+		color: #000;
+		border-radius: 0;
+		margin: 0;
+	}
+	.side.menu li span:hover {
+		background-color: #ddd;
+	}
+	.side.menu li span.active {
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-right: 1px solid #fff;
+		margin-right: -1px;
+	}
+
+.navbar-default {
+}
+
+/******************
+	Docs Pages
+******************/
+
+.doc-page {
+	margin-top: -50px;
+}
+
+section.doc {
+	min-height: 1000px;
+	padding: 50px;
+}

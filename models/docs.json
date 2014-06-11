@@ -1,0 +1,80 @@
+{
+    "docs": [{
+        "title": "Command Line Reference",
+        "id": "clr",
+        "blocks": [{
+            "header": "Running the default task",
+            "content": "",
+            "code": {
+                "lang": "dos",
+                "content": "scriptcs baufile.csx"
+            }
+        }, {
+            "header": "Running specific tasks",
+            "content": "",
+            "code": {
+                "lang": "dos",
+                "content": "scriptcs baufile.csx -- task1 task2"
+            }
+        }]
+    }, {
+        "title": "Defining tasks",
+        "id": "defining-task",
+        "blocks": [{
+            "header": "",
+            "content": "TIP: you can write <strong>any C# you like</strong> in your baufile. The scriptcs <a href='https://github.com/scriptcs/scriptcs/wiki/Writing-a-script#loading-referenced-scripts'>#load</a> and <a href='https://github.com/scriptcs/scriptcs/wiki/Writing-a-script#referencing-assemblies'>#r</a> features are both supported for loading scripts and referencing assemblies.",
+            "code": {
+                "lang": "cs",
+                "content": "Require<Bau>().DependsOn(\"groom_myself\", \"walk_dog\")\r\n\r\n.Task(\"turn_off_alarm\").Do(() => \r\n    Console.WriteLine(\"Turned off alarm. So tempted to snooze...\"))\r\n\r\n.Task(\"make_coffee\").DependsOn(\"turn_off_alarm\").Do(() =>\r\n    Console.WriteLine(\"Made coffee.\"))\r\n\r\n.Task(\"groom_myself\").DependsOn(\"make_coffee\").Do(() =>\r\n{\r\n    Console.WriteLine(\"Brushed teeth.\");\r\n    Console.WriteLine(\"Showered.\");\r\n    Console.WriteLine(\"Shaved.\");\r\n})\r\n\r\n.Task(\"walk_dog\").DependsOn(\"make_coffee\").Do(() =>\r\n    Console.WriteLine(\"Walked the dog.\"))\r\n\r\n.Execute();"
+            }
+        }]
+    }, {
+        "title": "Writing a task plugin",
+        "id": "writing-a-task-plugin",
+        "blocks": [{
+            "header": "",
+            "content": "Modularity is a fundamental aspect of the design of Bau. The core Bau library is as small as possible. It's plugins that add colour to the show.",
+            "code": ""
+        }, {
+            "header": "",
+            "content": "A Bau plugin is a scriptcs script pack, which currently needs to be compiled as DLL, e.g. using Visual Studio. In a future release of scriptcs, it will possible to write script packs as scripts (.csx files). After you have compiled your plugin into a DLL, you can either:<ol><li>package it as a NuGet package, push it the NuGet gallery and install it next to your baufile using <code>scriptcs -install</code> or</li><li>just copy the DLL to a <code>/bin</code> folder next to your baufile</li></ol>",
+            "code": ""
+        }, {
+            "header": "HelloWorld",
+            "content": "The following example is close to the simplest task plugin you could write.",
+            "code": ""
+        }, {
+            "header": "Plugin",
+            "content": "",
+            "code": {
+                "lang": "cs",
+                "content": "public class HelloWorld : BauCore.Task\r\n{\r\n    protected override void OnActionsExecuted()\r\n    {\r\n        System.Console.WriteLine(\"Hello world!\");\r\n    }\r\n}"
+            }
+        }, {
+            "header": "Usage",
+            "content": "",
+            "code": {
+                "lang": "cs",
+                "content": "Require<Bau>().Task<HelloWorld>().Execute();"
+            }
+        }, {
+            "header": "Greeter",
+            "content": "Here's a <em>slightly</em> more advanced example which has:<ul><li>a property which can be set in the <code>Action</code> defined in <code>Do()</code> when defining a task</li><li>an extension method <code>Greeter()</code> providing direct access to the plugin without having to use the generic syntax <code>Task&lt;Greeter&gt;()</code></li></ul>",
+            "code": ""
+        }, {
+            "header": "Plugin",
+            "content": "",
+            "code": {
+                "lang": "cs",
+                "content": "namespace BauGreeter\r\n{\r\n    using BauCore;\r\n\r\n    public class Greeter : Task\r\n    {\r\n        public string Greeting { get; set; }\r\n\r\n        protected override void OnActionsExecuted()\r\n        {\r\n            System.Console.WriteLine(this.Greeting);\r\n        }\r\n    }\r\n\r\n    public static class Plugin\r\n    {\r\n        public static IBau<Greeter> Greeter(this IBau bau, string name = Bau.DefaultTask)\r\n        {\r\n            return new Bau<Greeter>(bau, name);\r\n        }\r\n    }\r\n}"
+            }
+        }, {
+            "header": "Usage",
+            "content": "",
+            "code": {
+                "lang": "cs",
+                "content": "Require<Bau>().Greeter().Do(g => g.Greeting = \"Hello world!\").Execute();"
+            }
+        }]
+    }]
+}
