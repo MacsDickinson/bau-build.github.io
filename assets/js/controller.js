@@ -5,7 +5,7 @@ Site.config(function($routeProvider, $locationProvider) {
 
     .when('/', {
         templateUrl: 'pages/home.html',
-        controller: 'mainController'
+        controller: 'homeController'
     })
 
     .when('/quick-start', {
