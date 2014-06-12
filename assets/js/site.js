@@ -41,8 +41,10 @@ function setActiveContent() {
 $(function() {
     setActiveContent();
     setMenuStuck();
-    $('.side.menu span').not('[target="_blank"]').click(function() {
+
+    $(document).on('click', '.side.menu li a', function(e) {
         e.preventDefault();
+
         var elementClicked = $(this).attr("href");
         var destination = $(elementClicked).offset().top;
         $("html:not(:animated),body:not(:animated)").animate({
@@ -50,8 +52,7 @@ $(function() {
         }, 500);
 
         if (history != null)
-            history.replaceState(null, '', elementClicked);
-
+            history.pushState(null, '', '#/docs' + elementClicked);
         return false;
     });
 });
