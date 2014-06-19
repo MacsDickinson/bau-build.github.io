@@ -1,19 +1,17 @@
-<div class="jumbotron text-center">
-	<h1>Docs</h1>
-</div>
 <div class="row">
-	<div class="col-sm-4 col-md-3 col-lg-2">
-		<div class="side-menu-wrapper">
-			<ul class="nav nav-pills nav-stacked side menu stuck">
-				<li ng-repeat="doc in docs">
-					<a class="item" href="#{{ doc.id }}">
-						{{ doc.title }}
-					</a>
-				</li>
-			</ul>
-		</div>
+	<div class="col-sm-3 col-md-2 side-menu-wrapper">
+		<ul class="nav nav-stacked side menu stuck">
+			<li ng-repeat="doc in docs">
+				<a class="item" href="#{{ doc.id }}">
+					{{ doc.title }}
+				</a>
+			</li>
+		</ul>
 	</div>
-	<div class="col-sm-8 col-md-9 col-lg-10 doc-page">
+	<div class="col-sm-9 col-md-10 doc-page">
+		<div class="jumbotron text-center">
+			<h1>Docs</h1>
+		</div>
 		<section id="{{ doc.id }}" class="doc" ng-repeat="doc in docs">
 			<h2>{{ doc.title }}</h2>
 			<div class="row" ng-repeat="block in doc.blocks">

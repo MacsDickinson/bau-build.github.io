@@ -1,5 +1,11 @@
 var Site = angular.module('Site', ['hljs']);
 
+Site.init = function() {
+    $('.menu.stuck').each(function() {
+        $(this).width($(this).parent().width())
+    })
+};
+
 Site.config(function($routeProvider, $locationProvider) {
     $routeProvider
 
@@ -36,17 +42,26 @@ Site.config(function($routeProvider, $locationProvider) {
  *
  **********************************/
 
-Site.controller('homeController', function($scope) {});
+Site.controller('homeController', function($scope) {
+    Site.init();
+});
 
-Site.controller('quickStartController', function($scope) {});
+Site.controller('quickStartController', function($scope) {
+    Site.init();
+});
 
-Site.controller('pluginsController', function($scope) {});
+Site.controller('pluginsController', function($scope) {
+    Site.init();
+});
 
 Site.controller('docsController', function($scope, $http) {
     // Load docs
     $http.get('models/docs.json').success(function(data) {
         $scope.docs = data.docs;
     });
+    Site.init();
 });
 
-Site.controller('communityController', function($scope) {});
+Site.controller('communityController', function($scope) {
+    Site.init();
+});

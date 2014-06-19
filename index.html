@@ -20,12 +20,15 @@
 				<img src="/assets/img/bau.png" alt="bau" height="250" />
 			</h1>
 		</header> -->
-		<div class="menu-placeholder">
-			<nav class="navbar navbar-default menu main">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
+<!-- 		<div class="menu-placeholder">
+		</div> -->
+		<!-- Content -->
+		<div class="row">
+			<div class="col-sm-3 col-md-2 main-menu-wrapper">
+				<ul class="nav nav-stacked menu main stuck">
+					<li class="menu-header">
 						<a class="item" href="/">
-						Home
+						Bau
 						</a>
 					</li>
 					<li>
@@ -48,14 +51,11 @@
 						<i class="fa fa-users"></i> Community
 						</a>
 					</li>
-					<li><a class="item">
-					</a></li>
 				</ul>
-			</nav>
-		</div>
-		<!-- Content -->
-		<div id="wrapper">
-			<ng-view></ng-view>
+			</div>
+			<div class="col-sm-9 col-md-10 page-wrappper">
+				<ng-view></ng-view>
+			</div>
 		</div>
 		<!-- JavaScript Includes -->
 		<script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
