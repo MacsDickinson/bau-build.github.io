@@ -1,4 +1,4 @@
-var Site = angular.module('Site', []);
+var Site = angular.module('Site', ['hljs']);
 
 Site.config(function($routeProvider, $locationProvider) {
     $routeProvider

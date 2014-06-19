@@ -22,11 +22,7 @@
 					<p ng-bind-html-unsafe="block.content"></p>
 				</div>
 				<div class="col-lg-6 code">
-					<pre ng-show="block.code != ''">
-						<code class="{{ block.code.lang }}">
-							{{ block.code.content }}
-						</code>
-					</pre>
+					<div hljs source="block.code.content" language="{{block.code.lang}}" ng-show="block.code != ''"></div>
 				</div>
 			</div>
 		</section>
