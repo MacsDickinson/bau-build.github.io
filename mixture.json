@@ -1,11 +1,13 @@
 {
     "debug": false,
     "lintScripts": false,
-    "preprocessorLocations": "/",
+    "preprocessorLocations": [
+        "/"
+    ],
     "preprocessorScriptOutput": "assets/js",
     "preprocessorStyleOutput": "assets/css",
-    "projectName": "Project Name",
-    "projectDescription": "Project Description",
+    "projectName": "baubuild.github.io",
+    "projectDescription": "baubuild website",
     "publishedId": null,
     "serverHostname": null,
     "serverPort": null,
@@ -18,10 +20,6 @@
     "simpleModeFileTypes": null,
     "modelSource": null,
     "domain": null,
-    "convertHtmlOutput": null,
-    "convertHtmlDefault": null,
-    "convertHtmlIgnore": null,
-    "convertHtmlExtension": ".html",
     "followLeader": true,
     "routes": null,
     "customRuby": false,
@@ -29,14 +27,21 @@
     "remoteDebugPort": 0,
     "optimiseImages": true,
     "password": null,
-    "ignoreDir": "ignore",
+    "ignoreDir": [
+        "ignore"
+    ],
     "customTodos": null,
-    "ftpSettings": null,
     "autoPrefixer": null,
     "sass": null,
     "sitemap": false,
-    "gitHubPages": null,
     "less": null,
     "optimiseSVG": true,
-    "reload": 0
+    "reload": 0,
+    "convertHtml": {
+        "default": null,
+        "ignoreUrls": null,
+        "extension": ".html",
+        "path": null,
+        "relativePath": false
+    }
 }
