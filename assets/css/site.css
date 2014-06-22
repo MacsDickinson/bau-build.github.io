@@ -127,6 +127,8 @@ header {
 }
 
 section.doc {
-	min-height: 1000px;
-	padding: 50px;
+	margin: 10px;
+	background: white;
+	border: 2px solid #ddd;
+	padding: 10px 20px;
 }
