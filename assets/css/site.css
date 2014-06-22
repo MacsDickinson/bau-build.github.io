@@ -42,6 +42,10 @@ header {
 	padding-left: 0;
 }
 
+.jumbotron {
+	background: #f8f8f8;
+}
+
 /******************
 	Menus
 ******************/
@@ -91,12 +95,17 @@ header {
 	}
 	.side.menu li:hover, .side.menu li.active {
 		padding: 0;
-		background: #EEE;
+		background: #f8f8f8;
 		border-top: 2px solid #ddd;
 		border-left: 2px solid #ddd;
 		border-bottom: 2px solid #ddd;
 		margin-right: -2px;
 	}
+
+	.side.menu>li>a:focus, .side.menu>li>a:hover {
+		background-color: #f8f8f8;
+	}
+
 		.side.menu li > a {
 			color: #385050;
 		}
@@ -123,7 +132,7 @@ header {
 .doc-page {
 	margin-left: -2px;
 	margin-top: -50px;
-	background: #EEE;
+	background: #f8f8f8;
 }
 
 section.doc {
@@ -131,4 +140,15 @@ section.doc {
 	background: white;
 	border: 2px solid #ddd;
 	padding: 10px 20px;
+}
+
+
+/******************
+	Code
+******************/
+
+pre {
+	border: 1px solid #DDD;
+	border-radius: 0px;
+	background: #f8f8f8
 }
