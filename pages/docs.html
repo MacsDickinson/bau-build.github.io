@@ -14,15 +14,7 @@
 		</div>
 		<section id="{{ doc.id }}" class="doc" ng-repeat="doc in docs">
 			<h2>{{ doc.title }}</h2>
-			<div class="row" ng-repeat="block in doc.blocks">
-				<div class="col-lg-6 text">
-					<h3 ng-show="block.header != ''">{{ block.header }}</h3>
-					<p ng-bind-html-unsafe="block.content"></p>
-				</div>
-				<div class="col-lg-6 code">
-					<div hljs source="block.code.content" language="{{block.code.lang}}" ng-show="block.code != ''"></div>
-				</div>
-			</div>
+			<ng-include src="doc.content"></ng-include>
 		</section>
 	</div>
 </div>

@@ -1,0 +1,27 @@
+<div hljs cs>
+Require<Bau>()
+    .DependsOn("groom_myself", "walk_dog")
+
+.Task("turn_off_alarm")
+    .Do(() => Console.WriteLine("Turned off alarm. So tempted to snooze..."))
+
+.Task("make_coffee").DependsOn("turn_off_alarm")
+    .Do(() => Console.WriteLine("Made coffee."))
+
+.Task("groom_myself").DependsOn("make_coffee")
+    .Do(() =>
+    {
+        Console.WriteLine("Brushed teeth.");
+        Console.WriteLine("Showered.");
+        Console.WriteLine("Shaved.");
+    })
+
+.Task("walk_dog").DependsOn("make_coffee")
+    .Do(() => Console.WriteLine("Walked the dog."))
+
+.Run();
+</div>
+
+<p>Tasks can be defined in any order, can depend on any number of other tasks <code>DependsOn("foo", "bar")</code>, can be referenced multiple times with multiple calls to <code>Task("baz")</code> and can have multiple actions assigned to them with multiple calls to <code>Do()</code>.
+
+<p>TIP: you can write <b>any C# you like</b> in your baufile. The scriptcs <a href="https://github.com/scriptcs/scriptcs/wiki/Writing-a-script#loading-referenced-scripts" title="ScriptCS #load" target="_blank">#load</a> and <a href="https://github.com/scriptcs/scriptcs/wiki/Writing-a-script#referencing-assemblies" title="ScriptCS #r" target="_blank">#r</a> features are both supported for loading scripts and referencing assemblies.</p>

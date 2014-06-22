@@ -1,0 +1,69 @@
+<p>Modularity is a fundamental aspect of the design of Bau. The core Bau library is as small as possible. It's plugins that add colour to the show.</p>
+
+<p>A Bau plugin is a scriptcs script pack, which currently needs to be compiled as DLL, e.g. using Visual Studio. In a future release of scriptcs, it will possible to write script packs as scripts (.csx files). After you have compiled your plugin into a DLL, you can either:
+
+<ol>
+<li>package it as a NuGet package, push it the NuGet gallery and install it next to your baufile using `scriptcs -install` or</li>
+<li>just copy the DLL to a `/bin` folder next to your baufile</li>
+</ol>
+</p>
+
+<h3>HelloWorld</h3>
+<p>The following example is close to the simplest task plugin you could write.</p>
+<h5>Plugin</h5>
+<div hljs cs>
+public class HelloWorld : BauCore.Task
+{
+    protected override void OnActionsExecuted()
+    {
+        System.Console.WriteLine("Hello world!");
+    }
+}
+</div>
+
+<h5>Usage</h5>
+
+<div hljs cs>
+Require<Bau>().Task<HelloWorld>().Execute();
+</div>
+
+<h3>Greeter</h3>
+<p>Here's a <b>slightly</b> more advanced example which has:</p>
+<ol>
+    <li>a property which can be set in the <code>Action</code> defined in <code>Do()</code> when defining a task</li>
+    <li>an extension method <code>Greeter()</code> providing direct access to the plugin without having to use the generic syntax <code>Task<Greeter>()</code></li>
+</ol>
+
+<h5>Plugin</h5>
+<div hljs cs>
+namespace BauGreeter
+{
+    using BauCore;
+
+    public class Greeter : Task
+    {
+        public string Greeting { get; set; }
+
+        protected override void OnActionsExecuted()
+        {
+            System.Console.WriteLine(this.Greeting);
+        }
+    }
+
+    public static class Plugin
+    {
+        public static IBau<Greeter> Greeter(this IBau bau, string name = Bau.DefaultTask)
+        {
+            return new Bau<Greeter>(bau, name);
+        }
+    }
+}
+</div>
+
+<h5>Usage</h5>
+<div hljs cs>
+Require<Bau>().Greeter().Do(g => g.Greeting = "Hello world!").Execute();
+</div>
+
+
+
