@@ -4,6 +4,7 @@ Site.init = function() {
     $('.menu.stuck').each(function() {
         $(this).width($(this).parent().width())
     })
+    setActiveContent();
 };
 
 Site.config(function($routeProvider, $locationProvider) {
@@ -59,6 +60,9 @@ Site.controller('docsController', function($scope, $http) {
     $http.get('models/docs.json').success(function(data) {
         $scope.docs = data.docs;
     });
+    $scope.loaded = function() {
+        setActiveContent();
+    }
     Site.init();
 });
 

@@ -9,7 +9,7 @@ function setActiveContent() {
         var target = $(elementClicked).offset().top;
         var height = $(elementClicked).outerHeight();
 
-        if ($(window).scrollTop() >= target && $(window).scrollTop() < target + height) {
+        if ($(window).scrollTop() >= target && $(window).scrollTop() < target + 10 + height) {
             $(this).parent().addClass('active');
         } else {
             $(this).parent().removeClass('active');

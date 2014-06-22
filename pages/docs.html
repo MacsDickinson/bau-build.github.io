@@ -14,7 +14,7 @@
 		</div>
 		<section id="{{ doc.id }}" class="doc" ng-repeat="doc in docs">
 			<h2>{{ doc.title }}</h2>
-			<ng-include src="doc.content"></ng-include>
+			<ng-include src="doc.content" onload="loaded()"></ng-include>
 		</section>
 	</div>
 </div>
