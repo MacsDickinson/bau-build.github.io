@@ -22,6 +22,13 @@ function setActiveContent() {
 $(function() {
     setActiveContent();
 
+    // Set menu widths if window is resized
+    $(window).resize(function() {
+        $('.menu.stuck').each(function() {
+            $(this).width($(this).parent().width())
+        })
+    });
+
     $(document).on('click', '.side.menu li a', function(e) {
         e.preventDefault();
 
