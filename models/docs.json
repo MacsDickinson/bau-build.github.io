@@ -2,15 +2,15 @@
     "docs": [{
         "title": "Defining tasks",
         "id": "defining-task",
-        "content": "models/Docs/01.DefiningTasks.html"
+        "content": "pages/Docs/01.DefiningTasks.html"
     }, {
         "title": "Command Line Reference",
         "id": "clr",
-        "content": "models/Docs/02.CommandLineReference.html"
+        "content": "pages/Docs/02.CommandLineReference.html"
     }, {
         "title": "Writing a task plugin",
         "id": "writing-a-task-plugin",
 
-        "content": "models/Docs/03.WritingATaskPlugin.html"
+        "content": "pages/Docs/03.WritingATaskPlugin.html"
     }]
 }
