@@ -1,3 +1,46 @@
-<div class="jumbotron text-center">
-	<h1>Home</h1>
+<div class="home-wrapper">
+	<div class="jumbotron text-center logo-header">
+		<img src="/assets/img/bau.png" title="Bau" height="200" />
+	</div>
+	<section class="home">
+		<p>Bau is a community driven, cross platform, pluggable task runner built on the <a href="https://github.com/scriptcs/scriptcs" target="_blank">scriptcs</a> + <a href="https://www.nuget.org/" target="_blank">NuGet</a> ecosystem.</p>
+		<p>The core Bau library is a <a href="https://github.com/scriptcs/scriptcs/wiki/Script-Packs" target="_blank">script pack</a> providing task definition, dependencies between tasks and task running.</p>
+		<p>Extensions are provided by <a href="#plugins">plugins</a>, taking advantage of Bau's modular, pluggable architecture.</p>
+	</section>
+	<section class="home">
+		<h2>Task definition</h2>
+		<div hljs cs>
+// baufile.csx
+Require<Bau>().Do(() => Console.WriteLine("Hello world!")).Run();
+		</div>
+	</section>
+	<section class="home">
+		<h2>Dependencies between tasks</h2>
+		<div hljs cs>
+// baufile.csx
+string message;
+
+Require<Bau>()
+    .DependsOn("world")
+    .Do(() => Console.WriteLine(message))
+.Task("world")
+    .DependsOn("hello")
+    .Do(() => message += " world!")
+.Task("hello")
+    .Do(() => message = "Hello")
+.Run();
+		</div>
+		<p>Tasks can be defined in any order, can depend on any number of other tasks <code>DependsOn("foo", "bar")</code>, can be referenced multiple times with multiple calls to <code>Task("baz")</code> and can have multiple actions assigned to them with multiple calls to <code>Do()</code>.</p>
+	</section>
+	<section class="home">
+		<h2>Running tasks</h2>
+		<div hljs dos>
+scriptcs baufile.csx
+		</div>
+		<p>Powered by <a href="https://github.com/scriptcs/scriptcs" target="_blank">scriptcs</a> and <a href="http://msdn.microsoft.com/en-gb/roslyn" target="_blank">Roslyn</a>.</p>
+	</section>
+	<section class="home">
+		<h2>Sponsors</h2>
+		<p>Our build server is kindly provided by <a href="http://codebetter.com/" target="_blank">CodeBetter</a> and <a href="http://www.jetbrains.com/" target="_blank">JetBrains</a>.</p>
+	</section>
 </div>
