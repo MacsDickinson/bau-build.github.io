@@ -147,6 +147,10 @@ pre {
 ******************/
 .page-wrapper {
 	background: #f8f8f8;
+	min-height: 1000px;
+}
+section {
+	margin: 10px;
 }
 /******************
 	Home
@@ -160,7 +164,6 @@ pre {
 
 section.home {
 	padding: 15px 30px;
-	margin: 10px;
 	font-size: 1.4em;
 	text-align: center;
 }
@@ -174,6 +177,38 @@ section.home code {
 }
 
 /******************
+	Contributors
+******************/
+
+section.contributors {
+	padding: 15px 30px;
+}
+.contributor {
+	padding: 0;	
+}
+	.contributor a img.media-object {
+		width: 80px;
+		height: 80px;
+	}
+
+	.contributor-commits {
+		font-style: italic;
+		display: block;
+	}
+
+	.contributor-login {
+		font-weight: 600;
+		font-size: 1.3em;
+		padding: 5px 0;
+		display: block;
+	}
+
+	.contributor-url {
+
+	}
+	
+
+/******************
 	Docs Pages
 ******************/
 
@@ -182,11 +217,15 @@ section.home code {
 }
 
 section.doc {
-	margin: 10px;
 	background: white;
 	border: 2px solid #ddd;
 	padding: 10px 20px;
 }
+
+	section.doc h2 {
+		text-align: center;
+		padding-bottom: 10px;
+	}
 
 /******************
 	Coming Soon

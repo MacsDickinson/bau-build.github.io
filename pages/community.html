@@ -1,6 +1,30 @@
 <div class="jumbotron text-center">
 	<h1>Community</h1>
 </div>
-<section class="coming-soon">
-	<h2>Coming Soon</h2>
+<section class="contrbutors">
+	<p class="governance-model">Bau uses the <a href="http://oss-watch.ac.uk/resources/benevolentdictatorgovernancemodel" target="_blank">Benevolent Dictator Governance Model.</a></p>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Bau contributors</h2>
+			<p>Bau has {{ bauContributors.length }} awesome contributors 
+			<div id="{{ contributor.id }}" class="contributor media" ng-repeat="contributor in bauContributors" ng-include="'contributor.html'" ng-init="contributor=contributor">
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h2>bau.github.io contributors</h2>
+			<p>bau.github.io has {{ websiteContributors.length }} awesome contributors
+			<div id="{{ contributor.id }}" class="contributor media" ng-repeat="contributor in websiteContributors" ng-include="'contributor.html'" ng-init="contributor=contributor">
+			</div>
+		</div>
+	</div>
 </section>
+<script type="text/ng-template" id="contributor.html">
+	<a href="{{ contributor.html_url }}" target="_blank" class="pull-left">
+		<img src="{{ contributor.avatar_url }} " alt="{{ contributor.login }}" class="media-object" />
+	</a>
+	<div class="media-body">
+		<span class="contributor-commits" ng-show="contributor.contributions">#{{ $index + 1 }} ({{ contributor.contributions }} commits)</span>
+		<span class="contributor-login">{{ contributor.login }}</span>
+		<a class="contributor-url" href="{{ contributor.html_url }}" target="_blank">{{ contributor.html_url }}</a> 
+	</div>
+</script>

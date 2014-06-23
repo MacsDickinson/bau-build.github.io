@@ -66,6 +66,25 @@ Site.controller('docsController', function($scope, $http) {
     Site.init();
 });
 
-Site.controller('communityController', function($scope) {
+Site.controller('communityController', function($scope, $http) {
+    $http.get('https://api.github.com/repos/bau-build/bau/contributors').success(function(data) {
+        $scope.bauContributors = data.sort(compareContributors);
+    });
+    $http.get('https://api.github.com/repos/bau-build/bau-build.github.io/contributors').success(function(data) {
+        $scope.websiteContributors = data.sort(compareContributors);
+    });
     Site.init();
 });
+
+
+/*  Utilities
+ *
+ **********************************/
+
+function compareContributors(a, b) {
+    if (a.contributions > b.contributions)
+        return -1;
+    if (a.contributions < b.contributions)
+        return 1;
+    return 0;
+}
