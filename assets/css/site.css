@@ -137,9 +137,10 @@ header {
 ******************/
 
 pre {
-	border: 1px solid #DDD;
+	border: none;
 	border-radius: 0px;
-	background: #f8f8f8
+	background: #23241f;
+	padding: 5px 20px;
 }
 
 /******************
@@ -157,6 +158,7 @@ section {
 ******************/
 .home-wrapper {
 }
+
 .logo-header {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -169,8 +171,9 @@ section.home {
 }
 
 section.home pre {
-	border: none;
-	padding: 5px 20px;
+	border: 5px solid #ddd;
+	max-width: 800px;
+	margin: 15px auto;
 }
 section.home code {
 	text-align: left;

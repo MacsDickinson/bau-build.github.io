@@ -9,15 +9,12 @@
 	</section>
 	<section class="home">
 		<h2>Task definition</h2>
-		<div hljs cs>
-// baufile.csx
-Require<Bau>().Do(() => Console.WriteLine("Hello world!")).Run();
-		</div>
+		<div hljs cs>// baufile.csx
+Require<Bau>().Do(() => Console.WriteLine("Hello world!")).Run();</div>
 	</section>
 	<section class="home">
 		<h2>Dependencies between tasks</h2>
-		<div hljs cs>
-// baufile.csx
+		<div hljs cs>// baufile.csx
 string message;
 
 Require<Bau>()
@@ -28,15 +25,12 @@ Require<Bau>()
     .Do(() => message += " world!")
 .Task("hello")
     .Do(() => message = "Hello")
-.Run();
-		</div>
+.Run();</div>
 		<p>Tasks can be defined in any order, can depend on any number of other tasks <code>DependsOn("foo", "bar")</code>, can be referenced multiple times with multiple calls to <code>Task("baz")</code> and can have multiple actions assigned to them with multiple calls to <code>Do()</code>.</p>
 	</section>
 	<section class="home">
 		<h2>Running tasks</h2>
-		<div hljs dos>
-scriptcs baufile.csx
-		</div>
+		<div hljs dos>scriptcs baufile.csx</div>
 		<p>Powered by <a href="https://github.com/scriptcs/scriptcs" target="_blank">scriptcs</a> and <a href="http://msdn.microsoft.com/en-gb/roslyn" target="_blank">Roslyn</a>.</p>
 	</section>
 	<section class="home">
