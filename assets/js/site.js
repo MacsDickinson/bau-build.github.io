@@ -29,6 +29,9 @@ $(function() {
         })
     });
 
+    $(document).on('click', '.navbar-default a', function(e) {
+        $('#mainnav-collapse-1', $(this).closest('.navbar')).removeClass('in');
+    });
     $(document).on('click', '.side.menu li a', function(e) {
         e.preventDefault();
 

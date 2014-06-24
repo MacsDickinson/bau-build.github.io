@@ -54,6 +54,38 @@ header {
 	Menus
 ******************/
 
+.navbar {
+	border: none;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+.mainnav-collapse {
+	display: block;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #8DA2A2;
+}
+	.navbar-default .navbar-toggle .icon-bar {
+		background-color: #8DA2A2;
+	}
+		.navbar-default .navbar-toggle:focus , 
+		.navbar-default .navbar-toggle:hover {
+			background-color: #8DA2A2;
+		}
+			.navbar-default .navbar-toggle:focus .icon-bar, 
+			.navbar-default .navbar-toggle:hover .icon-bar {
+				background-color: #385050;
+			}
+
+
+@media (max-width: 768px) {
+	.mainnav-collapse {
+		display: none;
+	}
+}
+
 .main-menu-wrapper {
 	padding-right: 0;
 }
@@ -78,14 +110,17 @@ header {
 	background: #2F4747;
 }
 
-.main.menu li.menu-header {
+.menu-header {
 	background: #2F4747;
 	padding: 10px;
 	border-bottom: 2px solid #2D4141;
 }
-	.main.menu li.menu-header a {
-		color: #fff;
+	.menu-header a {
 		font-size: 1.2em;
+	}
+
+	.menu-header .navbar-brand {
+		color: #8DA2A2;
 	}
 
 .side-menu-wrapper {
@@ -117,9 +152,27 @@ header {
 			color: #385050;
 		}
 
+@media (max-width: 768px) {
+	.menu {
+		position: relative;
+	}
+	.main.menu {
+		width: 100% !important;
+	}
+	.main.menu li.menu-header {
+		display: none;
+	}
+	.side.menu {
+		display: none;
+	}
+}
+
 @media (min-width: 768px) {
 	.main.menu.stuck {
 		width: 25%;
+	}
+	.navbar-collapse {
+		padding: 0;
 	}
 }
 @media (min-width: 992px) {
@@ -229,6 +282,17 @@ section.doc {
 		text-align: center;
 		padding-bottom: 10px;
 	}
+
+
+@media (max-width: 768px) {
+	section.doc pre {
+		padding: 5px 2px;
+	}
+	section.doc pre code {
+		font-size: 11px;
+	}
+}
+
 
 /******************
 	Coming Soon
